@@ -1,0 +1,297 @@
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 10px;
+  margin: 0px;
+  padding: 0px;
+  color: #ffffff;
+}
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+sub {
+  top: 0.4em;
+}
+.sprite {
+  position: absolute;
+}
+
+#cta {
+  left: 18px;
+  top: 193px;
+  width: 113px;
+  height: 26px;
+  background-image: url(../img/cta.png);
+}
+
+#legal {
+  left: 16px;
+  top: 229px;
+  width: 268px;
+  height: 12px;
+  background-image: url(../img/legal.png);
+}
+
+#logo {
+	left:572px;
+	top:32px;
+	width:148px;
+	height:28px;
+	background-image:url(../img/logo.png);
+}
+
+#txt1 {
+  left: 9px;
+  top: 56px;
+  width: 147px;
+  height: 101px;
+  background-image: url(../img/txt1.png);
+}
+
+#txt2 {
+  left: 4px;
+  top: 50px;
+  width: 137px;
+  height: 139px;
+  background-image: url(../img/txt2.png);
+}
+
+#txt3 {
+  left: 4px;
+  top: 55px;
+  width: 112px;
+  height: 79px;
+  background-image: url(../img/txt3.png);
+}
+
+#txt4 {
+  left: 17px;
+  top: 31px;
+  width: 266px;
+  height: 134px;
+  background-image: url(../img/txt4.png);
+}
+
+#bg {
+	left:0px;
+	top:0px;
+	width:728px;
+	height:90px;
+	background-image:url(../img/bg.png);
+}
+
+#blue1 {
+  left: 0px;
+  top: 245px;
+  width: 51px;
+  height: 250px;
+  background-image: url(../img/blue1.png);
+}
+
+#blue2 {
+  left: 50px;
+  top: 245px;
+  width: 51px;
+  height: 250px;
+  background-image: url(../img/blue2.png);
+}
+
+#blue4 {
+  left: 149px;
+  top: 245px;
+  width: 53px;
+  height: 250px;
+  background-image: url(../img/blue4.png);
+}
+
+#blue3 {
+  left: 99px;
+  top: 245px;
+  width: 52px;
+  height: 250px;
+  background-image: url(../img/blue3.png);
+}
+#cover {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+#container {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+#blue5 {
+  left: 199px;
+  top: 245px;
+  width: 53px;
+  height: 250px;
+  background-image: url(../img/blue5.png);
+}
+
+#blue6 {
+  left: 249px;
+  top: 245px;
+  width: 51px;
+  height: 250px;
+  background-image: url(../img/blue6.png);
+}
+
+#txt1a {
+  left: 17px;
+  top: 34px;
+  width: 69px;
+  height: 21px;
+  background-image: url(../img/txt1a.png);
+}
+
+#txt1b {
+  left: 0px;
+  top: 61px;
+  width: 264px;
+  height: 61px;
+  background-image: url(../img/txt1b.png);
+}
+
+#txt1c {
+  left: 44px;
+  top: 134px;
+  width: 194px;
+  height: 22px;
+  background-image: url(../img/txt1c.png);
+}
+
+#txt1d {
+  left: 29px;
+  top: 160px;
+  width: 258px;
+  height: 18px;
+  background-image: url(../img/txt1d.png);
+}
+
+#txt2a {
+  left: 12px;
+  top: 45px;
+  width: 152px;
+  height: 21px;
+  background-image: url(../img/txt2a.png);
+}
+
+#txt2b {
+  left: 0px;
+  top: 72px;
+  width: 247px;
+  height: 61px;
+  background-image: url(../img/txt2b.png);
+}
+
+#txt2c {
+  left: 28px;
+  top: 146px;
+  width: 262px;
+  height: 22px;
+  background-image: url(../img/txt2c.png);
+}
+
+#txt3a {
+  left: 34px;
+  top: 72px;
+  width: 107px;
+  height: 17px;
+  background-image: url(../img/txt3a.png);
+}
+
+#txt3b {
+  left: 74px;
+  top: 85px;
+  width: 226px;
+  height: 76px;
+  background-image: url(../img/txt3b.png);
+}
+
+#txt01A {
+	left:26px;
+	top:26px;
+	width:278px;
+	height:17px;
+	background-image:url(../img/txt01A.png);
+}
+
+#txt01B {
+	left:25px;
+	top:34px;
+	width:227px;
+	height:18px;
+	background-image:url(../img/txt01B.png);
+}
+
+#txt02A {
+	left:25px;
+	top:26px;
+	width:208px;
+	height:39px;
+	background-image:url(../img/txt02A.png);
+}
+
+#txt02B {
+	left:139px;
+	top:15px;
+	width:185px;
+	height:18px;
+	background-image:url(../img/txt02B.png);
+}
+
+#txt03 {
+	left:27px;
+	top:43px;
+	width:436px;
+	height:13px;
+	background-image:url(../img/txt03.png);
+}
+
+#ctaHit {
+  left: 5px;
+  top: 65px;
+  width: 114px;
+  height: 23px;
+  opacity: 0;
+}
+
+#ctaArrow {
+	left:130px;
+	top:70px;
+	width:9px;
+	height:11px;
+	background-image:url(../img/ctaArrow.png);
+}
+
+#ctaBox {
+	left:25px;
+	top:66px;
+	width:97px;
+	height:15px;
+	background-image:url(../img/ctaBox.png);
+}
+
+
+#txt03A {
+	left:25px;
+	top:19px;
+	width:84px;
+	height:16px;
+	background-image:url(../img/txt03A.png);
+}
+
+#txt03B {
+	left:113px;
+	top:19px;
+	width:239px;
+	height:17px;
+	background-image:url(../img/txt03B.png);
+}
