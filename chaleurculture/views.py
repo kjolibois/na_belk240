@@ -58,23 +58,10 @@ class MiamiHeatStats(ObjectMultipleModelAPIView):
       today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
       today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
       querylist = [
-            {'queryset': RosterStats.objects.all(), 'serializer_class': RosterSerializer},
+            {'queryset': RosterStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': RosterSerializer},
             {'queryset': BasicStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': RegularSerializer},
             {'queryset': DefenseStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': DefenseSerializer},
             {'queryset': AdvancedStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': AdvancedSerializer},
             {'queryset': HustleStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': HustleSerializer},
         ]
 
-'''
-class MiamiHeatStats(APIView):
-    """
-    Returns the Details of the cart
-    """
-
-    def get(self, request, format=None, **kwargs):
-        latest= UpdatesStats.objects.latest('insertionDate')
-        serializer = UpdatesStatsSerializer(latest )
-
-        return JsonResponse(serializer.data)
-'''
-    
