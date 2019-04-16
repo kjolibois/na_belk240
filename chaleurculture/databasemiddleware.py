@@ -7,6 +7,7 @@ def create_hustle_entries(hustle_list):
                 for hustle in hustle_list:
                         
                                 HustleStats.objects.create(
+                                        
                                         PLAYER_NAME= hustle['PLAYER_NAME'], 
                                         CONTESTED_SHOTS_2PT= hustle['CONTESTED_SHOTS_2PT'],
                                         MIN= hustle['MIN'], 

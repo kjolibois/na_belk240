@@ -9,8 +9,10 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 from chaleurculture.databasemiddleware import create_update_entry,create_advanced_entries,create_defense_entries,create_regular_entries,create_roster_entries,create_hustle_entries
-from chaleurculture.serializers import UpdatesStatsSerializer
-from datetime import datetime
+from chaleurculture.serializers import UpdatesStatsSerializer,HustleSerializer,DefenseSerializer,RegularSerializer,RosterSerializer,AdvancedSerializer
+import datetime
+from rest_framework.views import APIView
+
 # Create your views here.
 @api_view(['GET', 'POST'])
 def update_page(request):
@@ -50,29 +52,29 @@ def update_page(request):
             #return "postworksinner"#Response(updateserializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(serializer.data)#Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'POST'])
-def get_test_page(request):
-        if request.method == 'GET':
-            #snippets = get_latest_update_status()
-            advanced_stats=get_advanced_stats()
-            #print(advanced_stats)
-            create_advanced_entries(advanced_stats)
-            defense_stats=get_defense_stats()
-            create_defense_entries(defense_stats)
-            #serializer = SnippetSerializer(snippets, many=True)
-            return JsonResponse(advanced_stats,safe=False) #Response(serializer.data)
-            '''
-@api_view(['GET', 'POST'])
+ 
+
 class MiamiHeatStats(ObjectMultipleModelAPIView):
-    today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
-    today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+      today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+      today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+      querylist = [
+            {'queryset': RosterStats.objects.all(), 'serializer_class': RosterSerializer},
+            {'queryset': BasicStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': RegularSerializer},
+            {'queryset': DefenseStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': DefenseSerializer},
+            {'queryset': AdvancedStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': AdvancedSerializer},
+            {'queryset': HustleStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': HustleSerializer},
+        ]
+
+'''
+class MiamiHeatStats(APIView):
+    """
+    Returns the Details of the cart
+    """
+
+    def get(self, request, format=None, **kwargs):
+        latest= UpdatesStats.objects.latest('insertionDate')
+        serializer = UpdatesStatsSerializer(latest )
+
+        return JsonResponse(serializer.data)
+'''
     
-    
-    querylist = [
-        {'queryset': RosterStats.objects.get(insertionDate_range=(today_min, today_max)), 'serializer_class': PlaySerializer},
-        {'queryset': BasicStats.objects.get( insertionDate_range=(today_min, today_max)), 'serializer_class': PoemSerializer},
-        {'queryset': DefenseStats.objects.get( insertionDate_range=(today_min, today_max)), 'serializer_class': PoemSerializer},
-        {'queryset': AdvancedStats.objects.get( insertionDate_range=(today_min, today_max)), 'serializer_class': PoemSerializer},
-        {'queryset': HustleStats.objects.get( insertionDate_range=(today_min, today_max)), 'serializer_class': PoemSerializer},
-    ]
-    '''

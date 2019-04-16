@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'zillna.apps.ZillnaConfig',
     'chaleurculture.apps.ChaleurcultureConfig',
     'corsheaders',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [

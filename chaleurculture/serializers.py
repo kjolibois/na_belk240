@@ -13,56 +13,31 @@ class UpdatesStatsSerializer(serializers.ModelSerializer):
                     'RosterStatsStatus')
 
 
-class Rosterserializer(serializers.ModelSerializer):
+class RosterSerializer(serializers.ModelSerializer):
     class Meta:
         model = RosterStats
-        fields =  ('insertionDate',
-                    'date_modified',
-                    'HustleStatsStatus',
-                    'AdvancedStatsStatus',
-                    'RegStatsStatus',
-                    'DefenseStatsStatus',
-                    'RosterStatsStatus')
+        fields =  '__all__'
 
-class Advancedserializer(serializers.ModelSerializer):
+class AdvancedSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdvancedStats
-        fields =  ('insertionDate',
-                    'date_modified',
-                    'HustleStatsStatus',
-                    'AdvancedStatsStatus',
-                    'RegStatsStatus',
-                    'DefenseStatsStatus',
-                    'RosterStatsStatus')
-class Regularserializer(serializers.ModelSerializer):
+        fields = '__all__'
+  
+  
+class RegularSerializer(serializers.ModelSerializer):
     class Meta:
         model = BasicStats
-        fields =  ('insertionDate',
-                    'date_modified',
-                    'HustleStatsStatus',
-                    'AdvancedStatsStatus',
-                    'RegStatsStatus',
-                    'DefenseStatsStatus',
-                    'RosterStatsStatus')
+        fields = '__all__'
+      
+       
+
 class DefenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = DefenseStats
-        fields =  ('insertionDate',
-                    'date_modified',
-                    'HustleStatsStatus',
-                    'AdvancedStatsStatus',
-                    'RegStatsStatus',
-                    'DefenseStatsStatus',
-                    'RosterStatsStatus')
+        fields = '__all__'
 
 
 class HustleSerializer(serializers.ModelSerializer):
     class Meta:
         model = HustleStats
-        fields =  ('insertionDate',
-                    'date_modified',
-                    'HustleStatsStatus',
-                    'AdvancedStatsStatus',
-                    'RegStatsStatus',
-                    'DefenseStatsStatus',
-                    'RosterStatsStatus')
+        fields = '__all__'

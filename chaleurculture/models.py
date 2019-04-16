@@ -1,10 +1,11 @@
 from django.db import models
+from django.utils import timezone
 
 
 class UpdatesStats(models.Model):
     #meta
-    insertionDate = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    insertionDate = models.DateTimeField(default=timezone.now)
+    date_modified = models.DateTimeField(default=timezone.now)
     HustleStatsStatus=models.CharField(max_length=255,null=True, blank=True ) 
     AdvancedStatsStatus=models.CharField(max_length=255, null=True, blank=True) 
     RegStatsStatus=models.CharField(max_length=255, null=True, blank=True) 
@@ -16,8 +17,8 @@ class UpdatesStats(models.Model):
 # Create your models here.
 class RosterStats(models.Model):
     #meta
-    insertionDate = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    insertionDate = models.DateTimeField(default=timezone.now)
+    date_modified = models.DateTimeField(default=timezone.now)
 
     TeamID=models.CharField(max_length=255,null=True, blank=True )
     SEASON=models.CharField(max_length=255,null=True, blank=True ) 
@@ -40,8 +41,8 @@ class RosterStats(models.Model):
 class DefenseStats(models.Model):
     """This class represents the info after zillow model."""
     #meta
-    insertionDate = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    insertionDate = models.DateTimeField(default=timezone.now)
+    date_modified = models.DateTimeField(default=timezone.now)
     #defense
     #percent block rank
     PCT_BLK_RANK=models.IntegerField(null=True, blank=True)
@@ -94,8 +95,8 @@ class DefenseStats(models.Model):
 class BasicStats(models.Model):
     """This class represents the info after zillow model."""
     #meta
-    insertionDate = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    insertionDate = models.DateTimeField(default=timezone.now)
+    date_modified = models.DateTimeField(default=timezone.now)
     #basicstats
     CFID=models.CharField(max_length=255,default=None )
     FTM_RANK=models.IntegerField(null=True, blank=True)
@@ -175,8 +176,8 @@ class BasicStats(models.Model):
 
 class AdvancedStats(models.Model):
     """This class represents the info after zillow model."""
-    insertionDate = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    insertionDate = models.DateTimeField(default=timezone.now)
+    date_modified = models.DateTimeField(default=timezone.now)
     PLAYER_ID = models.CharField(max_length=255, default=None)
     PLAYER_NAME = models.CharField(max_length=255,default=None )
     TEAM_ID = models.CharField(max_length=255,default=None )
@@ -256,8 +257,8 @@ class AdvancedStats(models.Model):
 class HustleStats(models.Model):
     """This class represents the info after zillow model."""
   
-    insertionDate = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    insertionDate = models.DateTimeField(default=timezone.now)
+    date_modified = models.DateTimeField(default=timezone.now)
     PLAYER_ID=  models.CharField(max_length=255, null=True, blank=True) 
     PLAYER_NAME= models.CharField(max_length=255, null=True, blank=True) 
     TEAM_ABBREVIATION= models.CharField(max_length=255, null=True, blank=True) 

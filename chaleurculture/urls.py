@@ -3,7 +3,7 @@ from chaleurculture import views
 
 urlpatterns = [
     path('update', views.update_page),
-    #path('heatculture/ranking', views.TextAPIView),
+    path('ranking', views.MiamiHeatStats.as_view()),
     #path('heatculture/<int:pk>/', views.individual_game),
 
 ]
