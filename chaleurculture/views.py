@@ -9,9 +9,12 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 from chaleurculture.databasemiddleware import create_update_entry,create_advanced_entries,create_defense_entries,create_regular_entries,create_roster_entries,create_hustle_entries
-from chaleurculture.serializers import UpdatesStatsSerializer,HustleSerializer,DefenseSerializer,RegularSerializer,RosterSerializer,AdvancedSerializer
+from chaleurculture.serializers import UserSerializer,UpdatesStatsSerializer,HustleSerializer,DefenseSerializer,RegularSerializer,RosterSerializer,AdvancedSerializer
 import datetime
 from rest_framework.views import APIView
+from rest_framework import permissions
+from django.contrib.auth.models import User
+from rest_framework import generics
 
 # Create your views here.
 @api_view(['GET', 'POST'])
@@ -19,6 +22,7 @@ def update_page(request):
     """
     List all code snippets, or create a new snippet.
     """
+
     if request.method == 'GET':
         latest= UpdatesStats.objects.latest('insertionDate')
         serializer = UpdatesStatsSerializer(latest )
@@ -57,6 +61,8 @@ def update_page(request):
 class MiamiHeatStats(ObjectMultipleModelAPIView):
       today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
       today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
+      permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
       querylist = [
             {'queryset': RosterStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': RosterSerializer},
             {'queryset': BasicStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': RegularSerializer},
@@ -65,3 +71,12 @@ class MiamiHeatStats(ObjectMultipleModelAPIView):
             {'queryset': HustleStats.objects.filter( insertionDate__range=(today_min, today_max)), 'serializer_class': HustleSerializer},
         ]
 
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

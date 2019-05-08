@@ -59,7 +59,7 @@ def create_roster_entries(roster_list):
                                         weightcalc(
                                                 heightcalc(roster['HEIGHT']),
                                                 int(roster['WEIGHT'])
-                                                ),2
+                                                )['pctoff'],2
                                                 )
                         )
                 return "All Fine"

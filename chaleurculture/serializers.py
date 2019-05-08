@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from chaleurculture.models import RosterStats,BasicStats,DefenseStats,AdvancedStats,HustleStats,UpdatesStats
+from django.contrib.auth.models import User
 
 class UpdatesStatsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,3 +42,10 @@ class HustleSerializer(serializers.ModelSerializer):
     class Meta:
         model = HustleStats
         fields = '__all__'
+
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username' )

@@ -163,11 +163,14 @@ def weightcalc(heightininches,weight):
 
   print(106+((heightininches-60)*6))
   if heightininches<60:
-    value=weight/106
-    return decimal.Decimal(AbsolutePercentageOff(value))
+    targetweight=106
+    value=weight/targetweight
+    return {'pctoff':decimal.Decimal(AbsolutePercentageOff(value)),'targetweight':targetweight}
   else:
-    value= weight/(106+((heightininches-60)*6))
-    return decimal.Decimal(AbsolutePercentageOff(value))
+    targetweight=(106+((heightininches-60)*6))
+    value= weight/targetweight
+    
+    return {'pctoff': decimal.Decimal(AbsolutePercentageOff(value)),'targetweight':targetweight}
 
 heightininches=heightcalc("6-8")
 final= weightcalc(heightininches,"240")

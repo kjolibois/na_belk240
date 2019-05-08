@@ -22,11 +22,12 @@ class USAHomesRawData(models.Model):
     entryID = models.CharField(max_length=255, blank=False, unique=True)
     insertionDate = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
-    zipcode = models.CharField(max_length=255, blank=False, unique=False)
+    zipcode = models.CharField(max_length=255, blank=True,null=True ,unique=False)
     address= models.CharField(max_length=255, blank=False, unique=True)
     state =models.CharField(max_length=255, blank=False, unique=False)
     city= models.CharField(max_length=255, blank=False, unique=False)
     homeid= models.CharField(max_length=255, blank=False, unique=False)
+    emaildate= models.CharField(max_length=255, blank=False, unique=False)
 
     def __str__(self):
         """Return a human readable representation of the model instance."""

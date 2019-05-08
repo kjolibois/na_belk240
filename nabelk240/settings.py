@@ -42,9 +42,18 @@ INSTALLED_APPS = [
     'chaleurculture.apps.ChaleurcultureConfig',
     'corsheaders',
     'rest_framework',
+    'django.contrib.sites',
+'chroniker',
 
 ]
+REST_FRAMEWORK = {
+  
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,7 +68,8 @@ MIDDLEWARE = [
 CORS_ORIGIN_WHITELIST = (
     'google.com',
     'localhost:3000',
-    '127.0.0.1:9000'
+    '127.0.0.1:9000',
+    'http://localhost:3000'
 )
 CORS_ALLOW_HEADERS = (
     'accept',
@@ -140,7 +150,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SITE_ID=1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 

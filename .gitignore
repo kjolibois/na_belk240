@@ -19,7 +19,11 @@
 *.rar
 *.tar
 *.zip
-
+# credentials #
+######################
+*.conf
+credentials.json
+*.pickle
 # Logs and databases #
 ######################
 *.log

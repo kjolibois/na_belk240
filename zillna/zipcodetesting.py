@@ -1,29 +1,38 @@
 from .models import USAHomesRawData,USAHOMESaleInfo
-
+from googlemaps import googlemaps
+from geopy.geocoders import Nominatim
 def get_zip_code():
     #get 200 entries that are zipcode null
-    with open("~/home/khalil/gmaps_key.conf", 'r') as f:
+    with open("zillna/gmaps_key.conf", 'r') as f:
         key = f.readline().replace("\n", "")
-    twentyFiveHomes= USAHOMESaleInfo.objects.get()
+    print(key)
+    twentyFiveHomes=  USAHomesRawData.objects.all()
     for home in twentyFiveHomes:
     #make into a function for iteration
+        print(home.address)
         zip= gmap_call(home.address,key)
+        print(zip)
         home.zipcode = zip
         home.save()
-        print('YEAH')
-
+        #print('YEAH')
+        '''
 def gmap_call(address,key):
-    from googlemaps import GoogleMaps
+    geolocator = Nominatim(user_agent="nabelk")
+    location = geolocator.geocode(address)
+    print(location)
+'''
+def gmap_call(address,key):
 
-    gmaps = GoogleMaps(key)
+    gmaps = googlemaps.Client(key=key)
     address = address
     result = gmaps.geocode(address)
-    placemark = result['Placemark'][0]
-    details = placemark['AddressDetails']['Country']['AdministrativeArea']
-    street = details['Locality']['Thoroughfare']['ThoroughfareName']
-    city = details['Locality']['LocalityName']
-    state = details['AdministrativeAreaName']
-    zipcode = details['Locality']['PostalCode']['PostalCodeNumber']
-    print( ', '.join((street, city, state, zipcode)))
+    
+  
+    for item in result[0]['address_components']:
+        if item["types"][0] == 'postal_code':
+        
+            zipcode=item['short_name']
+            return zipcode
+    #print( ', '.join((street, city, state, zipcode)))
 
-    return zipcode
+    
